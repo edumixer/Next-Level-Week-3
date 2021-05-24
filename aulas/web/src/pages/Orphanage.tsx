@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import Sidebar from "../components/Sidebar";
 import mapIcon from "../utils/mapIcon";
+import mapVirus from "../images/virus.png";
 import api from "../services/api";
 
 import '../styles/pages/orphanage.css';

@@ -3,6 +3,7 @@ import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 import { useHistory } from "react-router-dom";
 
+import { FaLock } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 
 import Sidebar from "../components/Sidebar";
@@ -79,11 +80,11 @@ export default function OrphanagesMap() {
     <div id="page-create-orphanage">
       <Sidebar />
 
-      <main>
+      {/* <main> */}
         <form onSubmit={handleSubmit} className="create-orphanage-form">
           <fieldset>
-            <legend>Dados</legend>
-
+            <legend>Filtrar informações</legend>
+{/* 
             <Map 
               center={[-25.4253832,-49.2690483]} 
               style={{ width: '100%', height: 280 }}
@@ -104,72 +105,39 @@ export default function OrphanagesMap() {
                   ]} 
                 />
               )}
-            </Map>
+            </Map> */}
 
             <div className="input-block">
-              <label htmlFor="name">Nome</label>
-              <input 
-                id="name" 
-                value={name} 
-                onChange={event => setName(event.target.value)} 
-              />
+              <label htmlFor="name">Cidade - Estado</label>
+              <input/>
             </div>
 
             <div className="input-block">
-              <label htmlFor="about">Sobre <span>Máximo de 300 caracteres</span></label>
-              <textarea 
-                id="name" 
-                maxLength={300} 
-                value={about} 
-                onChange={event => setAbout(event.target.value)}
-              />
+              <label htmlFor="name">Dia da semana</label>
+              <input/>
             </div>
 
             <div className="input-block">
-              <label htmlFor="images">Fotos</label>
-
-              <div className="images-container">
-                {previewImages.map(image => {
-                  return (
-                    <img 
-                      key={image}
-                      src={image} 
-                      alt={name}
-                    />
-                  )
-                })}
-                <label htmlFor="image[]" className="new-image">
-                    <FiPlus size={24} color="#15b6d6" />
-                </label>
-              </div>    
-
-                <input multiple onChange={handleSelectImage} type="file" id="image[]"/>
-
+              <label htmlFor="name">Bairro</label>
+              <input/>
             </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Visitação</legend>
-
+          
             <div className="input-block">
-              <label htmlFor="instructions">Instruções</label>
-              <textarea 
-                id="instructions" 
-                value={instructions} 
-                onChange={event => setInstructions(event.target.value)}
-              />
+              <label htmlFor="name">Horário de entrada</label>
+              <input/>
             </div>
 
             <div className="input-block">
-              <label htmlFor="opening_hours">Horário de funcionamento</label>
-              <input 
-                id="opening_hours" 
-                value={opening_hours} 
-                onChange={event => setOpeningHours(event.target.value)}
-              />
+              <label htmlFor="name">Horário de saída</label>
+              <input/>
             </div>
 
             <div className="input-block">
+              <label htmlFor="name">Estabelecimento</label>
+              <input/>
+            </div>
+
+            {/* <div className="input-block">
               <label htmlFor="open_on_weekends">Atende fim de semana</label>
 
               <div className="button-select">
@@ -188,14 +156,52 @@ export default function OrphanagesMap() {
                     Não
                   </button>
               </div>
-            </div>
+            </div> */}
           </fieldset>
 
           <button className="confirm-button" type="submit">
             Confirmar
           </button>
         </form>
-      </main>
+      
+        <form onSubmit={handleSubmit} className="recomedation">
+          <fieldset>
+            <legend>Recomendação</legend>
+
+            <div className="input-block">
+              
+              <label htmlFor="name">Melhor dia:</label>
+              <input/>
+              
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="name">Melhor horário:</label>
+              <input/>
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="name">Risco</label>
+              <input/>
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="name">Melhor estabelecimento</label>
+              <input/>
+            </div>
+
+            <div className="teste">
+              <label htmlFor="name">Casos:</label>
+              <input/>
+            </div>
+            
+          </fieldset>
+        
+          <button className="confirm-button" type="submit">
+            Confirmar
+          </button>
+        </form>
+      {/* </main> */}
     </div>
   );
 }
